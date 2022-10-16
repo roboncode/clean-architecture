@@ -21,7 +21,8 @@ class MockLocalDataSource implements INumberTriviaLocalDataSource {
     return new NumberTrivia(123, 'test trivia', true)
   }
 
-  async cacheNumberTrivia(numberTrivia: NumberTrivia): Promise<void> {
+  async cacheNumberTrivia(_: NumberTrivia): Promise<void> {
+    // mock does nothing with the trivia
     return
   }
 }
@@ -38,26 +39,46 @@ class MockDisconnectedNetworkInfo implements INetworkInfo {
   }
 }
 
-describe('NumberTriviaRepository', () => {
+describe('test repository when it is connected', () => {
   const remoteDataSource = new MockRemoteDataSource()
   const localDataSource = new MockLocalDataSource()
-  const connectedNetworkInfo = new MockConnectedNetworkInfo()
-  const disconnectedNetworkInfo = new MockDisconnectedNetworkInfo()
-  const connectedRepository = new NumberTriviaRepository(remoteDataSource, localDataSource, connectedNetworkInfo)
-  const disconnectedRepository = new NumberTriviaRepository(remoteDataSource, localDataSource, disconnectedNetworkInfo)
+  const networkInfo = new MockConnectedNetworkInfo()
+  const numberTriviaRepository = new NumberTriviaRepository(remoteDataSource, localDataSource, networkInfo)
+
+  it('should return true when device is connected', async () => {
+    const isConnected = await networkInfo.isConnected()
+    expect(isConnected).toBe(true)
+  })
 
   it('should get concrete number trivia', async () => {
-    const result = await connectedRepository.getConcreteNumberTrivia(1)
+    const result = await numberTriviaRepository.getConcreteNumberTrivia(1)
     expect(result.number).toBe(1)
   })
 
   it('should get random number trivia', async () => {
-    const result = await connectedRepository.getRandomNumberTrivia()
+    const result = await numberTriviaRepository.getRandomNumberTrivia()
     expect(result.number).toBe(123)
+  })
+})
+
+describe('test repository when it is disconnected', () => {
+  const remoteDataSource = new MockRemoteDataSource()
+  const localDataSource = new MockLocalDataSource()
+  const networkInfo = new MockDisconnectedNetworkInfo()
+  const numberTriviaRepository = new NumberTriviaRepository(remoteDataSource, localDataSource, networkInfo)
+
+  it('should return false when device is disconnected', async () => {
+    const isConnected = await networkInfo.isConnected()
+    expect(isConnected).toBe(false)
+  })
+
+  it('should get concrete number trivia', async () => {
+    const result = await numberTriviaRepository.getConcreteNumberTrivia(1)
+    expect(result.number).toBe(1)
   })
 
   it('should get cached number trivia', async () => {
-    const result = await disconnectedRepository.getRandomNumberTrivia()
+    const result = await numberTriviaRepository.getRandomNumberTrivia()
     expect(result.number).toBe(123)
   })
 })

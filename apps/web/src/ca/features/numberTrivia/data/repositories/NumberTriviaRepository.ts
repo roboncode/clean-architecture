@@ -1,8 +1,8 @@
 import { INetworkInfo } from "../../../core/data/platform/INetworkInfo"
+import { INumberTrivia } from "../../domain/entities/INumberTrivia"
 import { INumberTriviaLocalDataSource } from "../datasources/INumberTriviaLocalDataSource"
 import { INumberTriviaRemoteDataSource } from "../datasources/INumberTriviaRemoteDataSource"
 import { INumberTriviaRepository } from "../../domain/repositories/INumberTriviaRepository"
-import { NumberTrivia } from "../models/NumberTrivia"
 
 export class NumberTriviaRepository implements INumberTriviaRepository {
   constructor(
@@ -11,13 +11,16 @@ export class NumberTriviaRepository implements INumberTriviaRepository {
     private readonly networkInfo: INetworkInfo
   ) {}
 
-  async getConcreteNumberTrivia(number: number): Promise<NumberTrivia> {
-    const numberTrivia = await this.remoteDataSource.getConcreteNumberTrivia(number)
-    this.localDataSource.cacheNumberTrivia(numberTrivia)
-    return numberTrivia
+  async getConcreteNumberTrivia(number: number): Promise<INumberTrivia> {
+    if(await this.networkInfo.isConnected()) {
+      const numberTrivia = await this.remoteDataSource.getConcreteNumberTrivia(number)
+      this.localDataSource.cacheNumberTrivia(numberTrivia)
+      return numberTrivia
+    }
+    return this.localDataSource.getCachedNumberTrivia()
   }
 
-  async getRandomNumberTrivia(): Promise<NumberTrivia> {
+  async getRandomNumberTrivia(): Promise<INumberTrivia> {
     if(await this.networkInfo.isConnected()) {
       const numberTrivia = await this.remoteDataSource.getRandomNumberTrivia()
       this.localDataSource.cacheNumberTrivia(numberTrivia)
