@@ -1,0 +1,39 @@
+/* Tabs */
+.tabs {
+  @apply flex items-center select-none gap-2 text-sm overflow-x-auto;
+}
+
+.tabs::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.tabs input[type='radio'] {
+  appearance: none;
+}
+
+.tabs input[type='radio']:before {
+  content: attr(data-title);
+}
+
+.tabs .tab {
+  @apply border-b-3 border-transparent px-4 py-2 cursor-pointer;
+}
+
+.tabs .tab:hover {
+  @apply border-dark-900/10 dark:border-light-900/10;
+}
+
+.tabs .tab[disabled] {
+  @apply text-gray-400;
+}
+
+.tabs .tab:focus {
+  box-shadow: none;
+}
+
+.tabs:not(.tabs-outline) .tab-active,
+.tabs:not(.tabs-outline) .tab:checked,
+.tabs:not(.tabs-outline) .tab:checked+label {
+  @apply  !border-b-light-blue-500 font-bold;
+}

@@ -1,0 +1,5 @@
+export const screenSmall = '(min-width: 40rem)'
+export const screenMedium = '(min-width: 64rem)'
+export const screenLarge = '(min-width: 80rem)'
+export const screenXLarge = '(min-width: 87.5rem)'
+export const screenXXLarge = '(min-width: 96rem)'

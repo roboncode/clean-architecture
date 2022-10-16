@@ -1,0 +1,55 @@
+/* .dark .container.editor {
+  @apply w-full h-full;
+} */
+
+.dark .editor {
+  color: #00ffeb;
+}
+
+.dark .token.boolean {
+  color: #ffab00;
+}
+
+.dark .token.string {
+  color: #00ff2f
+}
+
+.dark .token.class-name {
+  color: #f05eff;
+}
+
+.dark .token.model {
+  color: #00a0fd;
+}
+
+.dark .token.clickable {
+  color: #00a0fd;
+}
+
+.dark .token.clickable:hover {
+  color: black;
+  background-color: #00a0fd;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dark .token.property {
+  color: #00b7ff;
+}
+
+.dark .token.operator {
+  color: #ffa500;
+  background-color: transparent;
+}
+
+.dark .token.number {
+  color: #ffa600
+}
+
+.dark .token.function {
+  color: #ffa600
+}
+
+.dark .token.keyword {
+  color: #f05eff
+}

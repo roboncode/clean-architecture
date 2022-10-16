@@ -1,0 +1,11 @@
+/* This one works! */
+.dialog-enter-active,
+.dialog-leave-active {
+  transition: all 0.2s ease;
+}
+
+.dialog-enter-from,
+.dialog-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+}

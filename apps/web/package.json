@@ -1,0 +1,40 @@
+{
+  "name": "web",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest --coverage"
+  },
+  "dependencies": {
+    "@formkit/auto-animate": "1.0.0-beta.3",
+    "@lit-labs/react": "^1.0.9",
+    "@radix-ui/react-tooltip": "^1.0.0",
+    "@shoelace-style/shoelace": "2.0.0-beta.83",
+    "@unocss/reset": "^0.45.26",
+    "ahooks": "^3.7.1",
+    "formik": "^2.2.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
+    "react-solid-bridge": "^1.0.1",
+    "ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@iconify-json/tabler": "^1.1.37",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@unocss/preset-icons": "^0.45.26",
+    "@unocss/preset-uno": "^0.45.26",
+    "@unocss/transformer-directives": "^0.45.26",
+    "@vitejs/plugin-react": "^2.1.0",
+    "@vitest/coverage-c8": "^0.24.3",
+    "typescript": "^4.8.4",
+    "unocss": "^0.45.26",
+    "vite": "^3.1.6",
+    "vitest": "^0.24.3"
+  }
+}

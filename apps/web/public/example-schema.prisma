@@ -1,0 +1,246 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../api/.generated/prisma-client-js"
+  binaryTargets = ["native", "linux-musl"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum MessagingChannelType {
+  /// anyone can join
+  public  @map("public")
+  /// requires invite to join channel
+  private @map("private")
+  /// one more more users will be added to this channel
+  direct  @map("direct")
+  /// allows external groups to join without having to be members of the organization
+  connect @map("connect")
+}
+
+model MessagingChannel {
+  // @read!
+  id        String               @id @default(auto()) @map("_id") @db.ObjectId
+  // @read! @update
+  archived  Boolean              @default(false)
+  // @read! @create! @update
+  name      String
+  // @read! @create! @default("public")
+  type      MessagingChannelType @default(public)
+  // @read! @create @update
+  tags      String[]
+  // @read! @create @update
+  starred   Boolean              @default(false)
+  // @read @create @update /// settings not defined in schema
+  settings  Json?
+  // @read!
+  createdAt DateTime             @default(now())
+  // @read!
+  updatedAt DateTime             @default(now())
+
+  members  MessagingChannelMember[]
+  messages MessagingChannelMessage[]
+  invites  MessagingChannelInvite[]
+  smsUsers MessagingUser[]
+
+  // @@unique([type, gatewayUserId])
+  @@map("messaging_channels")
+}
+
+model MessagingChannelInvite {
+  // @read!
+  id              String           @id @default(auto()) @map("_id") @db.ObjectId
+  // @read! @create
+  channelId       String           @db.ObjectId
+  // @read!
+  channel         MessagingChannel @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  // @read
+  messagingUserId String?          @db.ObjectId
+  // @read
+  messagingUser   MessagingUser?   @relation(fields: [messagingUserId], references: [id], onDelete: Cascade)
+  // @read
+  email           String?
+  // @read
+  phone           String?
+  // @read!
+  createdAt       DateTime         @default(now())
+  // @read!
+  sentCount       Int              @default(1)
+  // @read!
+  lastSentAt      DateTime         @default(now())
+  // @read
+  expiresAt       DateTime?
+
+  @@map("messaging_channel_invites")
+}
+
+enum MessageNotifyPref {
+  all      @map("all")
+  mentions @map("mentions")
+  none     @map("none")
+}
+
+enum MessagingChannelMemberRole {
+  admin  @map("admin")
+  member @map("member")
+}
+
+model MessagingChannelMember {
+  // @read!
+  id         String                     @id @default(auto()) @map("_id") @db.ObjectId
+  // @read! @create!
+  channelId  String                     @db.ObjectId
+  // @read
+  channel    MessagingChannel           @relation(fields: [channelId], references: [id])
+  // @read! @create!
+  userId     String                     @db.ObjectId
+  // @read
+  user       MessagingUser              @relation(fields: [userId], references: [id])
+  // @read! @create
+  role       MessagingChannelMemberRole @default(member)
+  // @read! /// should always match user's name
+  name       String
+  // @read! @create @update
+  muted      Boolean                    @default(false)
+  // @read! @create @update
+  notify     MessageNotifyPref          @default(all)
+  messages   MessagingChannelMessage[]
+  // @read!
+  createdAt  DateTime                   @default(now())
+  // @read! @update
+  lastReadAt DateTime                   @default(now())
+
+  @@unique([channelId, userId])
+  @@map("messaging_channel_members")
+}
+
+enum MessagingChannelMessageType {
+  user @map("user")
+  bot  @map("bot")
+}
+
+model MessagingChannelMessage {
+  // @read!
+  id               String                      @id @default(auto()) @map("_id") @db.ObjectId
+  // @read! @create!
+  channelId        String                      @db.ObjectId
+  // @read
+  channel          MessagingChannel            @relation(fields: [channelId], references: [id])
+  // @read! @create!
+  memberId         String                      @db.ObjectId
+  // @read
+  member           MessagingChannelMember      @relation(fields: [memberId], references: [id])
+  // @read! @create
+  type             MessagingChannelMessageType @default(user)
+  // @read! @create!
+  text             String
+  // @read @create @update
+  mediaUrls        MediaUrl[]
+  // @read
+  twilioMessageSid String?
+  // @read!
+  queued           Boolean                     @default(false)
+  // @read! @update // pins the message to the top of the channel
+  pinned           Boolean                     @default(false)
+  // @read!
+  createdAt        DateTime                    @default(now())
+
+  @@index([channelId, id])
+  @@map("messaging_channel_messages")
+}
+
+enum MessagingQueuePriorty {
+  high   @map("high")
+  normal @map("normal")
+  low    @map("low")
+}
+
+type MediaUrl {
+  // @create @read
+  url  String
+  // @create @read
+  type String
+}
+model MessagingQueue {
+  // @read! @delete!
+  id           String                @id @default(auto()) @map("_id") @db.ObjectId
+  // @read! @create! /// the channel the message is for
+  channelId    String                @db.ObjectId
+  // @read! @create! /// the message to send
+  messageId    String                @db.ObjectId
+  // @read! @create! /// member who authored message
+  authorId     String                @db.ObjectId
+  // @read! @create! /// member's name who authored message
+  authorName   String
+  // @read! @create! /// mobile to send message to
+  sms          String
+  // @read! @create /// where to place in queue (high, normal, low)
+  priority     MessagingQueuePriorty @default(normal)
+  // @read! @create! /// the message to send
+  receiverName String
+  // @read! @create! /// the message to send
+  text         String
+  // @read @create @update
+  mediaUrls    MediaUrl[]
+  // @read!
+  attempts     Int                   @default(0)
+  // @read
+  lastAttempt  DateTime?
+  // @read!
+  createdAt    DateTime              @default(now())
+
+  @@map("messaging_queues")
+}
+
+enum MessagingUserType {
+  /// users who are part of organization
+  user    @map("user")
+  /// connect users can only access channels they have been invited to. Do not have access to public channels.
+  connect @map("connect")
+}
+
+enum UserRole {
+  admin                @map("admin")
+  owner                @map("workspace_admin")
+  workspace_admin      @map("workspace_admin")
+  channel_admin        @map("channel_admin")
+  channel_manager      @map("channel_manager")
+  role_admin           @map("role_admin")
+  member               @map("member")
+  multi_channel_guest  @map("multi_channel_guest")
+  single_channel_guest @map("single_channel_guest")
+}
+
+model MessagingUser {
+  // @read!
+  id           String            @id @default(auto()) @map("_id") @db.ObjectId
+  // @read! @create!
+  userRefId    String            @unique
+  // @create @read! @update
+  roles        UserRole[]        @default([member])
+  // @read! @create @update
+  permissions  String[]
+  // @read! @update
+  status       String            @default("")
+  // @read! @create! @update /// email messages
+  name         String
+  // @read @create @update /// email messages
+  email        String?
+  // @read @create @update /// phone number
+  phone        String?           @unique
+  // @read @create @update /// channel user can use to send and receive messages via their phone number
+  smsChannelId String?           @db.ObjectId
+  // @read @create @update /// channel user can use to send and receive messages via their phone number
+  smsChannel   MessagingChannel? @relation(fields: [smsChannelId], references: [id])
+  // @read! @create @update /// OptIn to receive SMS messages
+  smsOptIn     Boolean           @default(false)
+  // @read @create @update /// link to profile image
+  photoUrl     String?
+
+  members MessagingChannelMember[]
+  invites MessagingChannelInvite[]
+
+  @@map("messaging_users")
+}
