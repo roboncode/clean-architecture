@@ -1,7 +1,7 @@
-import { INetworkInfo } from "../platform/INetworkInfo"
+import { INetworkInfo } from './INetworkInfo'
 
 export class BrowserNetworkInfo implements INetworkInfo {
   async isConnected(): Promise<boolean> {
-    return navigator.onLine;
+    return globalThis.navigator?.onLine || false
   }
 }

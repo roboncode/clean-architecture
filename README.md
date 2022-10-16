@@ -1,4 +1,6 @@
-# Turborepo starter
+# Clean Architecture and Test Driven Development (TDD) using TypeScript
+
+## Turborepo starter
 
 This is an official pnpm starter turborepo.
 

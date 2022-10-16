@@ -1,4 +1,4 @@
-import { INetworkInfo } from "../../../core/data/platform/INetworkInfo"
+import { INetworkInfo } from "../../../core/network/INetworkInfo"
 import { INumberTrivia } from "../../domain/entities/INumberTrivia"
 import { INumberTriviaLocalDataSource } from "../datasources/INumberTriviaLocalDataSource"
 import { INumberTriviaRemoteDataSource } from "../datasources/INumberTriviaRemoteDataSource"

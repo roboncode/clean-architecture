@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest'
 
 import { INumberTrivia } from '../entities/INumberTrivia'
 import { INumberTriviaRepository } from '../repositories/INumberTriviaRepository'
-import { NumberTrivia } from '../../data/models/NumberTrivia'
 import { makeGetConcreteNumberTrivia } from './getConcreteNumberTrivia'
 import { makeGetRandomNumberTrivia } from './getRandomNumberTrivia'
 
@@ -20,7 +19,12 @@ class MockNumberTriviaRepository implements INumberTriviaRepository {
   getRandomNumberTrivia(): Promise<INumberTrivia> {
     // get a random number between 1 and 100
     const randomNumber = Math.floor(Math.random() * 100) + 1
-    return Promise.resolve(new NumberTrivia(randomNumber, 'test', true))
+    return Promise.resolve({
+      text: 'test',
+      number: randomNumber,
+      found: true,
+      type: 'test',
+    })
   }
 }
 
@@ -30,13 +34,6 @@ describe('getConcreteNumberTrivia', () => {
   it('should return a number trivia', async () => {
     const result = await getConcreteNumberTrivia(1)
     expect(result.number).toBe(1)
-  })
-
-  // TODO: Move this to data layer, just doing this to keep tests passing
-  it('should be valid', async () => {
-    const result = await getConcreteNumberTrivia(1)
-    const numberTrivia = new NumberTrivia(result.number, result.text, result.found)
-    expect(numberTrivia.validate()).toBe(true)
   })
 })
 

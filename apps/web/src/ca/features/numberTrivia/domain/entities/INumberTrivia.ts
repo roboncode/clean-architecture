@@ -1,4 +1,4 @@
-import { IEntity } from '../../../core/entities/IEntity'
+import { IEntity } from './IEntity'
 
 export interface INumberTrivia extends IEntity {
   text: string

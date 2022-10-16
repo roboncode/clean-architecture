@@ -1,7 +1,7 @@
-import { IDeserializable } from '../../../core/entities/IDeserializable'
+import { IDeserializable } from '../../../core/data/models/IDeserializable'
 import { INumberTrivia } from '../../domain/entities/INumberTrivia'
-import { ISerializable } from '../../../core/entities/ISerializable'
-import { IValidate } from '../../../core/entities/IValidate'
+import { ISerializable } from '../../../core/data/models/ISerializable'
+import { IValidate } from '../../../core/data/models/IValidate'
 
 export class NumberTrivia implements INumberTrivia, IValidate, ISerializable, IDeserializable {
   constructor(public number: number, public text: string, public found: boolean, public type = 'trivia') {}

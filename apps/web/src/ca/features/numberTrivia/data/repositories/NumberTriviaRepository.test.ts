@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { INetworkInfo } from '../../../core/data/platform/INetworkInfo'
+import { INetworkInfo } from '../../../core/network/INetworkInfo'
 import { INumberTriviaLocalDataSource } from '../datasources/INumberTriviaLocalDataSource'
 import { INumberTriviaRemoteDataSource } from '../datasources/INumberTriviaRemoteDataSource'
 import { NumberTrivia } from '../models/NumberTrivia'
@@ -73,8 +73,9 @@ describe('test repository when it is disconnected', () => {
   })
 
   it('should get concrete number trivia', async () => {
+    // in the real-world this would throw an exception if there was no cached data
     const result = await numberTriviaRepository.getConcreteNumberTrivia(1)
-    expect(result.number).toBe(1)
+    expect(result.number).toBe(123)
   })
 
   it('should get cached number trivia', async () => {
