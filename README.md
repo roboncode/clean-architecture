@@ -1,5 +1,7 @@
 # Clean Architecture and Test Driven Development (TDD) using TypeScript
 
+![Clean Architecture Banner](./images//clean-architecture-banner.png)
+
 Clean Architecture is an architecture design developed by [Robert C. Martin (Uncle Bob)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). You will find many articles talking about the theory and concepts behind Clean Architecture. How you choose to apply these concepts is then up to the softare architect. You will see in [this article](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), how many interpretations of this model there can be.
 
 With all this theory, there are not many good examples on how to apply this a real-world TypeScript project. I feel like its similar to learning music theory without knowing how to play an instrument. This project demonstrates how to use Clean Architecture with best practices applied in a real-world example.
