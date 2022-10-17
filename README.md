@@ -2,16 +2,15 @@
 
 ![Clean Architecture Banner](./images//clean-architecture-banner.png)
 
-Clean Architecture is an architecture design developed by [Robert C. Martin (Uncle Bob)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). You will find many articles talking about the theory and concepts behind Clean Architecture. How you choose to apply these concepts is then up to the softare architect. You will see in [this article](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), how many interpretations of this model there can be.
+Clean Architecture is an architecture design developed by [Robert C. Martin (Uncle Bob)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). You will find many tutorials talking about the theory and concepts behind Clean Architecture. How you choose to apply these concepts in your project is up to you. You will see in [this article](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), some variations of this design.
 
-With all this theory, there are not many good examples on how to apply this a real-world TypeScript project. I feel like its similar to learning music theory without knowing how to play an instrument. This project demonstrates how to use Clean Architecture with best practices applied in a real-world example.
+With all these concepts, I wanted to provide a real-world example using best practices applying Clean Architecture.
 
 ![Clean Architecture Diagram](./images/clean_architecture.jpeg)
 
-## What does the application do?
+## What does this example project do?
 
-The application fetches number trivia from [Numbers API](http://numbersapi.com/#42) when connected to the internet (online). If the application detects a network connection is no longer present (offline), it will fetch the last trivia from a local cache. You can fetch
-trivia from a number you provide or a random number provided by the API. Because this project was build using Clean Architecture, applications representing the Presentation layer can be built using framework. Applications are built using [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/) are provided.
+The application fetches number trivia from [Numbers API](http://numbersapi.com/#42) when connected to the internet (online). If the application detects a network connection is no longer present (offline), it will fetch the last trivia from local cache. You can fetch trivia from a number you provide or a random number provided by the API. Because the business logic independent of any presentation or frameworks, applications representing the presentation layer can be built using different UI framework and adapters. This project provides some concrete implementations using [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/).
 
 ![Application Example](./images/app_example.png)
 
@@ -36,7 +35,7 @@ To demonstrate a clean presentation layer, the web applications use [Shoelace](h
 
 # Test Driven Development (TDD)
 
-The demo was built using TDD ensuring all business logic passes and has coverage. Tests were built and tested using [Vitest](https://vitest.dev/). Vitest is built on top of [Jest](https://jestjs.io/). If you know Jest, you know Vitest. Vitest supports TypeScript by default. Here is a great overview video on Vitest: https://www.youtube.com/watch?v=7f-71kYhK00
+The demo is built using TDD ensuring all business logic passes and has coverage. Tests were built and tested using [Vitest](https://vitest.dev/). Vitest is built on top of [Jest](https://jestjs.io/). If you know Jest, you know Vitest. Vitest supports TypeScript by default. Here is a great overview video on Vitest: https://www.youtube.com/watch?v=7f-71kYhK00
 
 ![Code Coverage](./images/code_coverage.png)
 
@@ -44,7 +43,7 @@ The demo was built using TDD ensuring all business logic passes and has coverage
 
 ### Installing dependencies
 
-To install all apps and packages dependencies, run the following command:
+To install all apps and packages dependencies, run the following command from the project root:
 
 ```
 pnpm install
@@ -85,8 +84,8 @@ This turborepo has some additional tools already setup for you:
 
 # Roadmap
 
-- [X] Provide a example in React.
-- [X] Provide a example in Vue.
+- [X] Provide a application example in React.
+- [X] Provide a application example in Vue.
 - [ ] Provide a services example using Node.js.
 - [ ] Provide a command line example that can be run from the terminal.
 - [ ] Provide a desktop example using Electron.
