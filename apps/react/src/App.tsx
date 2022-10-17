@@ -29,6 +29,13 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-base color-base flex justify-center items-center gap-4">
+      <div className="fixed top-0 left-0 w-full flex items-center p-4">
+        <div className="text-xl font-bold">Clean Architecture React Example</div>
+        <div className="flex-grow"></div>
+        <a href="https://github.com/roboncode/clean-architecture" target="_blank" rel="noreferrer">
+          <SlIcon name="github" className="text-2xl" />
+        </a>
+      </div>
       <SlCard className="shadow-lg w-full max-w-md">
         <div slot="header" className="flex items-center gap-2 text-xl font-bold">
           <img src={logo} className="w-6" />

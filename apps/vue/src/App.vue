@@ -24,6 +24,11 @@ const searchRandomTrivia = async () => {
 
 <template>
   <div className="w-screen h-screen bg-base color-base flex justify-center items-center gap-4">
+    <div class="fixed top-0 left-0 w-full flex items-center p-4">
+      <div class="text-xl font-bold">Clean Architecture Vue Example</div>
+      <div class="flex-grow"></div>
+      <a href="https://github.com/roboncode/clean-architecture" target="_blank"><sl-icon name="github" class="text-2xl"></sl-icon></a>
+    </div>
     <sl-card class="shadow-lg w-full max-w-md">
       <div slot="header" class="flex items-center gap-2 text-xl font-bold">
         <img src="./assets/vue.svg" class="w-6" alt="Vue logo" />
