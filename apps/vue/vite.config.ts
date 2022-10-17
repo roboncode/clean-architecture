@@ -5,8 +5,6 @@ import { defineConfig } from 'vitest/config'
 import presetUno from '@unocss/preset-uno'
 import vue from '@vitejs/plugin-vue'
 
-// Vitest video: https://www.youtube.com/watch?v=7f-71kYhK00
-
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
@@ -32,7 +30,7 @@ export default defineConfig({
         'color-accent': 'text-white dark:text-gray-100',
         'border-base': 'border-gray-300 dark:border-dark-300',
         'border-highlight': 'border-gray-200/50 dark:border-gray-700/50',
-      }
+      },
     }),
   ],
   resolve: {
@@ -41,7 +39,7 @@ export default defineConfig({
     },
   },
   test: {
-    includeSource: ['src/**/*.{ts,tsx}'],
+    includeSource: ['src/**/*.ts'],
     coverage: {
       reporter: ['html', 'text'],
     },

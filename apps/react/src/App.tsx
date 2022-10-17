@@ -2,7 +2,14 @@ import './App.css'
 import '@shoelace-style/shoelace/dist/themes/light.css'
 import '@shoelace-style/shoelace/dist/themes/dark.css'
 
-import { BrowserNetworkInfo, HttpClient, NumberTriviaLocalDataSource, NumberTriviaRemoteDataSource, NumberTriviaRepository, convertToNumber } from 'business'
+import {
+  BrowserNetworkInfo,
+  HttpClient,
+  NumberTriviaLocalDataSource,
+  NumberTriviaRemoteDataSource,
+  NumberTriviaRepository,
+  convertToNumber,
+} from 'business'
 import { SlButton, SlCard, SlIcon, SlInput } from '@shoelace-style/shoelace/dist/react'
 
 import { INumberTrivia } from 'business/numberTrivia/domain/entities/INumberTrivia'
@@ -37,8 +44,8 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-base color-base flex justify-center items-center gap-4">
-      <SlCard className='shadow-lg w-full max-w-md'>
-        <div slot="header" className='flex items-center gap-2 text-xl font-bold'>
+      <SlCard className="shadow-lg w-full max-w-md">
+        <div slot="header" className="flex items-center gap-2 text-xl font-bold">
           <img src={logo} className="w-6" />
           <div>Number Trivia</div>
         </div>
@@ -49,7 +56,14 @@ function App() {
               <div className="text-lg">{trivia.text}</div>
             </div>
           )}
-          <SlInput type="number" placeholder="Input a number" size="large" className="w-full" value={number} onSlInput={handleInputChange}>
+          <SlInput
+            type="number"
+            placeholder="Input a number"
+            size="large"
+            className="w-full"
+            value={number}
+            onSlInput={handleInputChange}
+          >
             <SlIcon name="search" slot="prefix"></SlIcon>
           </SlInput>
           <div className="flex gap-4">

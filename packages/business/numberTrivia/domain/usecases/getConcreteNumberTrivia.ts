@@ -1,4 +1,4 @@
-import { INumberTriviaRepository } from "../repositories/INumberTriviaRepository"
+import { INumberTriviaRepository } from '../repositories/INumberTriviaRepository'
 
 export const makeGetConcreteNumberTrivia = (repository: INumberTriviaRepository) => {
   return async (number: number) => {

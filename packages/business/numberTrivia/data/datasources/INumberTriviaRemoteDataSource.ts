@@ -1,10 +1,10 @@
-import { NumberTrivia } from "../models/NumberTrivia"
+import { NumberTrivia } from '../models/NumberTrivia'
 
 export interface INumberTriviaRemoteDataSource {
   /**
    * Calls the http://numbersapi.com/{number} endpoint.
-   * 
-   * @param number 
+   *
+   * @param number
    */
   getConcreteNumberTrivia(number: number): Promise<NumberTrivia>
 

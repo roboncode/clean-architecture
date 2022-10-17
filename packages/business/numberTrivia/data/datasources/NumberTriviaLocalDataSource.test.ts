@@ -1,4 +1,4 @@
-import {describe, expect, it} from 'vitest'
+import { describe, expect, it } from 'vitest'
 
 import { CacheError } from '../../../core/errors'
 import { NumberTrivia } from '../models/NumberTrivia'
@@ -6,8 +6,6 @@ import { NumberTriviaLocalDataSource } from './NumberTriviaLocalDataSource'
 import { SessionStorage } from '../../../core/data/storage/SessionStorage'
 
 describe('NumberTriviaLocalDataSource', () => {
-
-  
   it('should return NumberTrivia from storage when there is one in the cache', async () => {
     const sessionStorage = new SessionStorage()
     sessionStorage.setItem('cachedNumberTrivia', '{"text":"test trivia","number":1,"found":true,"type":"trivia"}')
@@ -22,8 +20,7 @@ describe('NumberTriviaLocalDataSource', () => {
     const numberTriviaLocalDataSource = new NumberTriviaLocalDataSource(sessionStorage)
     try {
       await numberTriviaLocalDataSource.getCachedNumberTrivia()
-    }
-    catch (error) {
+    } catch (error) {
       expect(error).toBeInstanceOf(CacheError)
     }
   })

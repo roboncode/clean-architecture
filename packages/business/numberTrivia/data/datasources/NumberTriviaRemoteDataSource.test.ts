@@ -13,7 +13,7 @@ describe('test remote data source', () => {
             number: 1,
             found: true,
           }
-        }
+        },
       }
       return response as HttpResponse
     },
@@ -30,5 +30,4 @@ describe('test remote data source', () => {
     const numberTrivia = await numberTriviaRemoteDataSource.getRandomNumberTrivia()
     expect(numberTrivia.number).toBe(1)
   })
-  
 })
