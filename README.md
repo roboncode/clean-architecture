@@ -1,13 +1,15 @@
 # Clean Architecture and Test Driven Development (TDD) using TypeScript
 
-Examples on how to use Clean Architecture in applications using TypeScript.
+Clean Architecture is an architecture design developed by [Robert C. Martin (Uncle Bob)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). You will find many articles talking about the theory and concepts behind Clean Architecture. How you choose to apply these concepts is then up to the softare architect. You will see in [this article](https://www.freecodecamp.org/news/a-quick-introduction-to-clean-architecture-990c014448d2/), how many interpretations of this model there can be.
+
+With all this theory, there are not many good examples on how to apply this a real-world TypeScript project. I feel like its similar to learning music theory without knowing how to play an instrument. This project demonstrates how to use Clean Architecture with best practices applied in a real-world example.
 
 ![Clean Architecture Diagram](./images/clean_architecture.jpeg)
 
-## What does the applications do?
+## What does the application do?
 
-The applications fetch number trivia from [Numbers API](http://numbersapi.com/#42) when connected to the internet (online). If the application detects a network connection is no longer present (offline), it will fetch the last trivia from a local cache. You can fetch
-trivia from a number you provide or a random number provided by the API. Because this project was build using Clean Architecture, applications representing the Presentation layer can be built using framework. Applications built using [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/) are provided.
+The application fetches number trivia from [Numbers API](http://numbersapi.com/#42) when connected to the internet (online). If the application detects a network connection is no longer present (offline), it will fetch the last trivia from a local cache. You can fetch
+trivia from a number you provide or a random number provided by the API. Because this project was build using Clean Architecture, applications representing the Presentation layer can be built using framework. Applications are built using [React.js](https://reactjs.org/) and [Vue.js](https://vuejs.org/) are provided.
 
 ![Application Example](./images/app_example.png)
 
@@ -77,6 +79,12 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
-### Credits
+# Roadmap
+
+- [ ] Provide a desktop example using Electron.
+- [ ] Provide a services example using Node.js.
+- [ ] Provide a command line example that can be run from the terminal.
+
+## Credits
 
 *Project based on tutorials by [Matt Rešetár](https://resocoder.com/) using [Flutter](https://flutter.dev/)*
