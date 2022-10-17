@@ -1,0 +1,16 @@
+{
+  "name": "business",
+  "version": "1.0.0",
+  "description": "Business logic for the application",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitest/coverage-c8": "^0.24.3",
+    "vitest": "^0.24.3"
+  }
+}
