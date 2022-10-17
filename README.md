@@ -80,6 +80,6 @@ Learn more about the power of Turborepo:
 - [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
 
 
-## Credits
+### Credits
 
-*Project based on concepts by [Matt Rešetár](https://resocoder.com/) implemented in [Flutter](https://flutter.dev/)*
+*Project based on tutorials by [Matt Rešetár](https://resocoder.com/) using [Flutter](https://flutter.dev/)*
