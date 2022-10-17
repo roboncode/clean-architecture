@@ -85,9 +85,11 @@ This turborepo has some additional tools already setup for you:
 
 # Roadmap
 
-- [ ] Provide a desktop example using Electron.
+- [X] Provide a example in React.
+- [X] Provide a example in Vue.
 - [ ] Provide a services example using Node.js.
 - [ ] Provide a command line example that can be run from the terminal.
+- [ ] Provide a desktop example using Electron.
 
 ## Credits
 
