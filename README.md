@@ -13,7 +13,7 @@ trivia from a number you provide or a random number provided by the API. Because
 
 ## What's inside?
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+This project was built using [Turborepo](https://turborepo.org/). This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
 
 ### Apps and Packages
 
@@ -32,32 +32,25 @@ To demonstrate a clean presentation layer, the web applications use [Shoelace](h
 
 # Test Driven Development (TDD)
 
-The demo was built using TDD ensuring all business logic passes and has coverage. Tests were built and tested using [Vitest](https://vitest.dev/). Vitest is built on top of [Jest](https://jestjs.io/). If you know Jest, you know Vitest. Vitest supports TypeScript by default.
+The demo was built using TDD ensuring all business logic passes and has coverage. Tests were built and tested using [Vitest](https://vitest.dev/). Vitest is built on top of [Jest](https://jestjs.io/). If you know Jest, you know Vitest. Vitest supports TypeScript by default. Here is a great overview video on Vitest: https://www.youtube.com/watch?v=7f-71kYhK00
 
 ![Code Coverage](./images/code_coverage.png)
 
-Here is a great overview video on Vitest:
+# Getting Started
 
-- https://www.youtube.com/watch?v=7f-71kYhK00
+### Installing dependencies
 
-
-# Other
-
-
-### Utilities
-
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+To install all apps and packages dependencies, run the following command:
 
 ```
-pnpm run build
+pnpm install
+```
+### Test
+
+To test all apps and packages, run the following command:
+
+```
+pnpm run test
 ```
 
 ### Develop
@@ -68,17 +61,21 @@ To develop all apps and packages, run the following command:
 pnpm run dev
 ```
 
-## Useful Links
+### Build
 
-Learn more about the power of Turborepo:
+To build all apps and packages, run the following command:
 
-- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
-- [Caching](https://turborepo.org/docs/core-concepts/caching)
-- [Remote Caching](https://turborepo.org/docs/core-concepts/remote-caching)
-- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
-- [Configuration Options](https://turborepo.org/docs/reference/configuration)
-- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
+```
+pnpm run build
+```
 
+### Utilities
+
+This turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
 ### Credits
 
