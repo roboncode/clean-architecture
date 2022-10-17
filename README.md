@@ -55,6 +55,8 @@ To test all apps and packages, run the following command:
 pnpm run test
 ```
 
+The test will be reported in the terminal and in HTML `packages/business/coverage/index.html`.
+
 ### Develop
 
 To develop all apps and packages, run the following command:
