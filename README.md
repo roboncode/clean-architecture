@@ -87,4 +87,4 @@ This turborepo has some additional tools already setup for you:
 
 ## Credits
 
-*Project based on tutorials by [Matt Rešetár](https://resocoder.com/) using [Flutter](https://flutter.dev/)*
+*This project is inspired by [Flutter](https://flutter.dev/) tutorials by [Matt Rešetár](https://resocoder.com/)*
