@@ -10,18 +10,15 @@
     "test": "vitest --coverage"
   },
   "dependencies": {
-    "@formkit/auto-animate": "1.0.0-beta.3",
     "@lit-labs/react": "^1.0.9",
-    "@radix-ui/react-tooltip": "^1.0.0",
     "@shoelace-style/shoelace": "2.0.0-beta.83",
     "@unocss/reset": "^0.45.26",
     "ahooks": "^3.7.1",
-    "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
-    "react-solid-bridge": "^1.0.1",
-    "ui": "workspace:*"
+    "ui": "workspace:*",
+    "business": "workspace:*"
   },
   "devDependencies": {
     "@iconify-json/tabler": "^1.1.37",
