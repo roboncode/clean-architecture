@@ -3,21 +3,8 @@ import '@shoelace-style/shoelace/dist/components/card/card.js'
 import '@shoelace-style/shoelace/dist/components/input/input.js'
 import '@shoelace-style/shoelace/dist/components/button/button.js'
 import { ref } from 'vue'
-import { INumberTrivia } from 'business/numberTrivia/domain/entities/INumberTrivia'
-import {
-  BrowserNetworkInfo,
-  HttpClient,
-  NumberTriviaLocalDataSource,
-  NumberTriviaRemoteDataSource,
-  NumberTriviaRepository,
-  convertToNumber,
-} from 'business'
+import { INumberTrivia, getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
 
-const httpClient = new HttpClient()
-const remoteDataSource = new NumberTriviaRemoteDataSource(httpClient)
-const localDataSource = new NumberTriviaLocalDataSource(localStorage)
-const networkInfo = new BrowserNetworkInfo()
-const numberTriviaRepository = new NumberTriviaRepository(remoteDataSource, localDataSource, networkInfo)
 
 const number = ref('')
 const trivia = ref<INumberTrivia>()
@@ -25,13 +12,12 @@ const trivia = ref<INumberTrivia>()
 const handleInputChange = (evt: any) => number.value = evt.target.value
 
 const searchTriviaFromInput = async () => {
-  const value = convertToNumber(number.value)
-  const numberTrivia = await numberTriviaRepository.getConcreteNumberTrivia(value)
+  const numberTrivia = await getConcreteNumberTrivia(number.value)
   trivia.value = numberTrivia
 }
 
 const searchRandomTrivia = async () => {
-  const numberTrivia = await numberTriviaRepository.getRandomNumberTrivia()
+  const numberTrivia = await getRandomNumberTrivia()
   trivia.value = numberTrivia
 }
 </script>

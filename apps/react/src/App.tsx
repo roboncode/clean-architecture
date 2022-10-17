@@ -2,26 +2,12 @@ import './App.css'
 import '@shoelace-style/shoelace/dist/themes/light.css'
 import '@shoelace-style/shoelace/dist/themes/dark.css'
 
-import {
-  BrowserNetworkInfo,
-  HttpClient,
-  NumberTriviaLocalDataSource,
-  NumberTriviaRemoteDataSource,
-  NumberTriviaRepository,
-  convertToNumber,
-} from 'business'
+import { INumberTrivia, getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
 import { SlButton, SlCard, SlIcon, SlInput } from '@shoelace-style/shoelace/dist/react'
 
-import { INumberTrivia } from 'business/numberTrivia/domain/entities/INumberTrivia'
 import logo from './assets/react.svg'
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path'
 import { useState } from 'react'
-
-const httpClient = new HttpClient()
-const remoteDataSource = new NumberTriviaRemoteDataSource(httpClient)
-const localDataSource = new NumberTriviaLocalDataSource(localStorage)
-const networkInfo = new BrowserNetworkInfo()
-const numberTriviaRepository = new NumberTriviaRepository(remoteDataSource, localDataSource, networkInfo)
 
 setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.83/dist/')
 
@@ -32,13 +18,12 @@ function App() {
   const handleInputChange = (evt: any) => setNumber(evt.target.value)
 
   const searchTriviaFromInput = async () => {
-    const value = convertToNumber(number)
-    const numberTrivia = await numberTriviaRepository.getConcreteNumberTrivia(value)
+    const numberTrivia = await getConcreteNumberTrivia(number)
     setTrivia(numberTrivia)
   }
 
   const searchRandomTrivia = async () => {
-    const numberTrivia = await numberTriviaRepository.getRandomNumberTrivia()
+    const numberTrivia = await getRandomNumberTrivia()
     setTrivia(numberTrivia)
   }
 
