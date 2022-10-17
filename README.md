@@ -27,7 +27,7 @@ Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
 ## Presentation layer for apps
 
-To demonstrate a clean presentation layer, the web applications use [Shoelace](https://shoelace.style/), a web component library built on [Lit](https://lit.dev/). Developing web components is a best practice when you want to applly DRY (Don't repeat yourself) principle.
+To demonstrate a clean presentation layer, the web applications use [Shoelace](https://shoelace.style/), a web component library built on [Lit](https://lit.dev/). Developing web components is a best practice when you want to apply the DRY (Don't repeat yourself) principle.
 
 
 # Test Driven Development (TDD)
