@@ -45,6 +45,14 @@ The demo is built using TDD ensuring all business logic passes and has coverage.
 
 To install all apps and packages dependencies, run the following command from the project root:
 
+### Build
+
+To build all apps and packages, run the following command:
+
+```
+pnpm run build
+```
+
 ```
 pnpm install
 ```
@@ -66,14 +74,6 @@ To develop all apps and packages, run the following command:
 pnpm run dev
 ```
 
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-pnpm run build
-```
-
 ### Utilities
 
 This turborepo has some additional tools already setup for you:
@@ -86,7 +86,7 @@ This turborepo has some additional tools already setup for you:
 
 - [X] Provide a application example in React.
 - [X] Provide a application example in Vue.
-- [ ] Provide a services example using Node.js.
+- [X] Provide a services example using Node.js.
 - [ ] Provide a command line example that can be run from the terminal.
 - [ ] Provide a desktop example using Electron.
 
