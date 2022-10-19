@@ -5,6 +5,10 @@ import fastify from 'fastify'
 
 const server = fastify()
 
+server.get('/', async (request, response) => {
+  return response.redirect('/trivia')
+})
+
 server.get('/trivia', async request => {
   const q = request.query as { number?: string }
   if (q.number) {

@@ -1,5 +1,5 @@
 import { INetworkInfo } from "business/core/network/INetworkInfo"
-import { NETWORK_TEST_URL } from "../../../config"
+import { NETWORK_TEST_URL } from "../../config"
 import axios from 'axios'
 
 // This is an example of a server-side network info implementation

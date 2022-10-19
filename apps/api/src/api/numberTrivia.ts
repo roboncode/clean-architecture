@@ -6,9 +6,9 @@ import {
   makeGetRandomNumberTrivia,
 } from 'business'
 
-import { HttpClient } from '../core/data/adapters/HttpClient'
-import { SQLiteStorage } from '../core/data/storage/SQLiteStorage'
-import { ServerNetworkInfo } from '../core/data/network/NetworkInfo'
+import { HttpClient } from '../data/adapters/HttpClient'
+import { SQLiteStorage } from '../data/storage/SQLiteStorage'
+import { ServerNetworkInfo } from '../data/network/NetworkInfo'
 
 /**
  * Here is where we are hooking up the business logic to the UI
