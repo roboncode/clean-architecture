@@ -1,4 +1,4 @@
-import { HttpResponse, IHttpClient } from '../../../core/data/adapters/HttpClient'
+import { IHttpClient, IHttpResponse } from '../../../core/data/adapters/HttpClient'
 import { describe, expect, it } from 'vitest'
 
 import { NumberTriviaRemoteDataSource } from './NumberTriviaRemoteDataSource'
@@ -15,7 +15,7 @@ describe('test remote data source', () => {
           }
         },
       }
-      return response as HttpResponse
+      return response as IHttpResponse
     },
   }
 

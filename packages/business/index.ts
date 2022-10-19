@@ -1,4 +1,3 @@
-export type { INumberTrivia } from './numberTrivia/domain/entities/INumberTrivia'
 export { NumberTriviaRepository } from './numberTrivia/data/repositories/NumberTriviaRepository'
 export { makeGetConcreteNumberTrivia } from './numberTrivia/domain/usecases/getConcreteNumberTrivia'
 export { makeGetRandomNumberTrivia } from './numberTrivia/domain/usecases/getRandomNumberTrivia'
