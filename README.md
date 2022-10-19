@@ -22,16 +22,22 @@ This project was built using [Turborepo](https://turborepo.org/). This turborepo
 
 - `apps/react`: a [React.js](https://reactjs.org/) app
 - `apps/vue`: a [Vue.js](https://vuejs.org/) app
+- `apps/server`: a [Node.js](https://vuejs.org/) web service. [See Readme](./apps/api/README.md)
 - `packages/business`: business logic demonstrating how to implement the `domain` and `data` layers of clean architecture.
 - `packages/eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `packages/tsconfig`: `tsconfig.json`s used throughout the monorepo
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-## Presentation layer for apps
+## Presentation layer
+
+### Web apps
 
 To demonstrate a clean presentation layer, the web applications use [Shoelace](https://shoelace.style/), a web component library built on [Lit](https://lit.dev/). Developing web components is a best practice when you want to apply the DRY (Don't repeat yourself) principle.
 
+### Server
+
+Custom adapters were developed that leverage our business logic but meet the requirements needed by the server. [See Readme](./apps/api/README.md)
 
 # Test Driven Development (TDD)
 
@@ -86,9 +92,7 @@ This turborepo has some additional tools already setup for you:
 
 - [X] Provide a application example in React.
 - [X] Provide a application example in Vue.
-- [X] Provide a services example using Node.js.
-- [ ] Provide a command line example that can be run from the terminal.
-- [ ] Provide a desktop example using Electron.
+- [X] Provide a service API example using Node.js.
 
 ## Credits
 

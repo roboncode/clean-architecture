@@ -12,6 +12,31 @@ importers:
       prettier: 2.7.1
       turbo: 1.5.6
 
+  apps/api:
+    specifiers:
+      '@types/node': ^18.0.0
+      '@vitest/coverage-c8': ^0.24.3
+      axios: ^1.1.3
+      business: workspace:*
+      concurrently: ^7.4.0
+      fastify: ^4.0.3
+      nodemon: ^2.0.20
+      sqlite3: ^5.1.2
+      typescript: ^4.8.4
+      vitest: ^0.24.3
+    dependencies:
+      axios: 1.1.3
+      business: link:../../packages/business
+      fastify: 4.9.1
+      sqlite3: 5.1.2
+    devDependencies:
+      '@types/node': 18.11.0
+      '@vitest/coverage-c8': 0.24.3
+      concurrently: 7.4.0
+      nodemon: 2.0.20
+      typescript: 4.8.4
+      vitest: 0.24.3
+
   apps/react:
     specifiers:
       '@lit-labs/react': ^1.0.9
@@ -45,33 +70,6 @@ importers:
       typescript: 4.8.4
       unocss: 0.45.29_vite@3.1.8
       vite: 3.1.8
-      vitest: 0.24.3
-
-  apps/server:
-    specifiers:
-      '@types/node': ^18.0.0
-      '@types/node-fetch': ^2.6.2
-      axios: ^1.1.3
-      business: workspace:*
-      concurrently: ^7.4.0
-      fastify: ^4.0.3
-      node-fetch: '2'
-      nodemon: ^2.0.20
-      sqlite3: ^5.1.2
-      typescript: ^4.8.4
-      vitest: ^0.24.3
-    dependencies:
-      axios: 1.1.3
-      business: link:../../packages/business
-      fastify: 4.9.1
-      node-fetch: 2.6.7
-      sqlite3: 5.1.2
-    devDependencies:
-      '@types/node': 18.11.0
-      '@types/node-fetch': 2.6.2
-      concurrently: 7.4.0
-      nodemon: 2.0.20
-      typescript: 4.8.4
       vitest: 0.24.3
 
   apps/vue:
@@ -715,13 +713,6 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
 
-  /@types/node-fetch/2.6.2:
-    resolution: {integrity: sha512-DHqhlq5jeESLy19TYhLakJ07kNumXWjcDdxXsLUMJZ6ue8VZJj4kLPQVE/2mdHh3xZziNF1xppu5lwmS53HR+A==}
-    dependencies:
-      '@types/node': 18.11.0
-      form-data: 3.0.1
-    dev: true
-
   /@types/node/18.11.0:
     resolution: {integrity: sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w==}
     dev: true
@@ -1345,6 +1336,7 @@ packages:
 
   /asynckit/0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
+    dev: false
 
   /atomic-sleep/1.0.0:
     resolution: {integrity: sha512-kNOjDqAh7px0XWNI+4QbzoiR/nTkHAWNud2uvnJquD1/x5a7EQZMJT0AczqK0Qn67oY/TTQ1LbUKajZpp3I9tQ==}
@@ -1617,6 +1609,7 @@ packages:
     engines: {node: '>= 0.8'}
     dependencies:
       delayed-stream: 1.0.0
+    dev: false
 
   /concat-map/0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
@@ -1762,6 +1755,7 @@ packages:
   /delayed-stream/1.0.0:
     resolution: {integrity: sha512-ZySD7Nf91aLB0RxL4KGrKHBXl7Eds1DAmEdcoVawXnLD7SDhpNgtuII2aAkg7a7QS41jxPSZ17p4VdGnMHk3MQ==}
     engines: {node: '>=0.4.0'}
+    dev: false
 
   /delegates/1.0.0:
     resolution: {integrity: sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==}
@@ -2595,15 +2589,6 @@ packages:
       signal-exit: 3.0.7
     dev: true
 
-  /form-data/3.0.1:
-    resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
-    engines: {node: '>= 6'}
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.35
-    dev: true
-
   /form-data/4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
@@ -3302,12 +3287,14 @@ packages:
   /mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
+    dev: false
 
   /mime-types/2.1.35:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
     dependencies:
       mime-db: 1.52.0
+    dev: false
 
   /mimic-fn/2.1.0:
     resolution: {integrity: sha512-OqbOk5oEQeAZ8WXWydlu9HJjz9WVdEIvamMCcXmuqUYjTknH/sqsWvhQ3vgwKFRR1HpjvNBKQ37nbJgYzGqGcg==}
