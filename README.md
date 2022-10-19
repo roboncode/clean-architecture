@@ -92,7 +92,9 @@ This turborepo has some additional tools already setup for you:
 
 - [X] Provide a application example in React.
 - [X] Provide a application example in Vue.
-- [X] Provide a service API example using Node.js.
+- [X] Provide a service example using Node.js.
+- [ ] Provide a command line example that can be run from the terminal.
+- [ ] Provide a desktop example using Electron.
 
 ## Credits
 
