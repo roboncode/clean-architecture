@@ -1,5 +1,4 @@
 import { ServerError } from '../../errors'
-import axios from 'axios'
 
 export interface IHttpResponse<T = any> extends Response {
   json<P = T>(): Promise<P>
