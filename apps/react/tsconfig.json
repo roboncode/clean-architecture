@@ -19,6 +19,5 @@
       "vitest/importMeta"
     ]
   },
-  "include": ["src", "../../packages/react-ui/components/Container.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
