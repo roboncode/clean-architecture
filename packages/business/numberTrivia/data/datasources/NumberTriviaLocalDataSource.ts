@@ -1,9 +1,10 @@
 import { CacheError } from '../../../core/errors'
+import { IAsyncStorage } from '../../../core/data/storage/IAsyncStorage'
 import { INumberTriviaLocalDataSource } from './INumberTriviaLocalDataSource'
 import { NumberTrivia } from '../models/NumberTrivia'
 
 export class NumberTriviaLocalDataSource implements INumberTriviaLocalDataSource {
-  constructor(public storage: Storage) {}
+  constructor(public storage: IAsyncStorage) {}
 
   async getCachedNumberTrivia(): Promise<NumberTrivia> {
     const cachedNumberTrivia = await this.storage.getItem('cachedNumberTrivia')

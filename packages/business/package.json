@@ -2,8 +2,9 @@
   "name": "business",
   "version": "1.0.0",
   "description": "Business logic for the application",
-  "main": "index.js",
+  "main": "dist/index.umd.js",
   "scripts": {
+    "build": "tsc && vite build",
     "test": "vitest --coverage"
   },
   "keywords": [],
@@ -11,6 +12,11 @@
   "license": "MIT",
   "devDependencies": {
     "@vitest/coverage-c8": "^0.24.3",
+    "typescript": "^4.8.4",
+    "vite": "^3.1.8",
     "vitest": "^0.24.3"
+  },
+  "dependencies": {
+    "axios": "^1.1.3"
   }
 }

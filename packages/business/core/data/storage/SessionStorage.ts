@@ -1,27 +1,29 @@
-export class SessionStorage implements Storage {
+import { IAsyncStorage } from "./IAsyncStorage"
+
+export class SessionStorage implements IAsyncStorage {
   private data: Record<string, string> = {}
 
-  get length(): number {
+  async length() {
     return Object.keys(this.data).length
   }
 
-  clear(): void {
+  async clear() {
     this.data = {}
   }
 
-  getItem(key: string): string | null {
+  async getItem(key: string) {
     return this.data[key] || null
   }
 
-  key(index: number): string | null {
+  async key(index: number) {
     return Object.keys(this.data)[index] || null
   }
 
-  removeItem(key: string): void {
+  async removeItem(key: string) {
     delete this.data[key]
   }
 
-  setItem(key: string, value: string): void {
+  async setItem(key: string, value: string) {
     this.data[key] = value
   }
 }
