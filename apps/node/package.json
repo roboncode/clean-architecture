@@ -18,12 +18,11 @@
     "axios": "^1.1.3",
     "business": "workspace:*",
     "fastify": "^4.0.3",
-    "node-fetch": "2",
     "sqlite3": "^5.1.2"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
-    "@types/node-fetch": "^2.6.2",
+    "@vitest/coverage-c8": "^0.24.3",
     "concurrently": "^7.4.0",
     "nodemon": "^2.0.20",
     "typescript": "^4.8.4",
