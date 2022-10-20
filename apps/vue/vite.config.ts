@@ -21,7 +21,7 @@ export default defineConfig({
     Unocss({
       presets: [presetUno()],
       shortcuts: {
-        'bg-base': 'bg-gray-100 dark:bg-slack',
+        'bg-base': 'bg-gray-100 dark:bg-dark-800',
         'bg-shade': 'bg-gray-200/70 dark:bg-gray-500/10',
         'bg-highlight': 'bg-gray-100 dark:bg-gray-600/50',
         'bg-accent': 'bg-dark-50 dark:bg-dark-200',

@@ -2,9 +2,10 @@ import './App.css'
 import '@shoelace-style/shoelace/dist/themes/light.css'
 import '@shoelace-style/shoelace/dist/themes/dark.css'
 
-import { INumberTrivia, getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
 import { SlButton, SlCard, SlIcon, SlInput } from '@shoelace-style/shoelace/dist/react'
+import { getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
 
+import { INumberTrivia } from 'business/numberTrivia/domain/entities/INumberTrivia'
 import logo from './assets/react.svg'
 import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path'
 import { useState } from 'react'
