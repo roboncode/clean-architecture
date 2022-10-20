@@ -3,7 +3,8 @@ import '@shoelace-style/shoelace/dist/components/card/card.js'
 import '@shoelace-style/shoelace/dist/components/input/input.js'
 import '@shoelace-style/shoelace/dist/components/button/button.js'
 import { ref } from 'vue'
-import { INumberTrivia, getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
+import { getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
+import { INumberTrivia } from 'business/numberTrivia/domain/entities/INumberTrivia'
 
 
 const number = ref('')

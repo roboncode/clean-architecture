@@ -4,11 +4,10 @@ import {
   NumberTriviaLocalDataSource,
   NumberTriviaRemoteDataSource,
   NumberTriviaRepository,
+  SessionStorage,
   makeGetConcreteNumberTrivia,
   makeGetRandomNumberTrivia,
 } from 'business'
-
-export type { INumberTrivia } from 'business'
 
 /**
  * Here is where we are hooking up the business logic to the UI
@@ -20,7 +19,7 @@ const httpClient = new HttpClient()
 const remoteDataSource = new NumberTriviaRemoteDataSource(httpClient)
 // Local storage is used to store data in the browser's local storage. It implements the Storage interface
 // The local data source is used to fetch data from the local storage
-const localDataSource = new NumberTriviaLocalDataSource(localStorage)
+const localDataSource = new NumberTriviaLocalDataSource(new SessionStorage(localStorage))
 // Network info is used to check if the device is connected to the internet
 const networkInfo = new BrowserNetworkInfo()
 // The repository is used to fetch data from the remote or local data source
