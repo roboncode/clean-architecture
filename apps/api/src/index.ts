@@ -1,9 +1,10 @@
 import { closeDatabase, getConcreteNumberTrivia, getRandomNumberTrivia } from './api/numberTrivia'
 
 import { PORT } from './config'
+import cors from '@fastify/cors'
 import fastify from 'fastify'
 
-const server = fastify()
+const server = fastify().register(cors)
 
 server.get('/', async (request, response) => {
   return response.redirect('/trivia')
