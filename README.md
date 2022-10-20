@@ -99,3 +99,7 @@ This turborepo has some additional tools already setup for you:
 ## Credits
 
 *This project is inspired by [Flutter](https://flutter.dev/) tutorials by [Matt Rešetár](https://resocoder.com/)*
+
+## License
+
+MIT license.
