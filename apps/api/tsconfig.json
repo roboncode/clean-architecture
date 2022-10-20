@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
+    "rootDir": "src",
     "composite": false,
     "target": "ES2016",
     "module": "CommonJS",
-    "rootDir": "./src",
     "moduleResolution": "node",
     "outDir": "build",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "strict": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "build"]

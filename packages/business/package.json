@@ -1,6 +1,16 @@
 {
   "name": "business",
   "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.umd.cjs",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
   "description": "Business logic for the application",
   "scripts": {
     "build": "tsc && vite build",
@@ -13,6 +23,7 @@
     "@vitest/coverage-c8": "^0.24.3",
     "typescript": "^4.8.4",
     "vite": "^3.1.8",
+    "vite-plugin-dts": "^1.6.6",
     "vitest": "^0.24.3"
   }
 }

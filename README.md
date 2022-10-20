@@ -88,6 +88,30 @@ This turborepo has some additional tools already setup for you:
 - [ESLint](https://eslint.org/) for code linting
 - [Prettier](https://prettier.io) for code formatting
 
+### Tricks to discovered along the way...
+
+1. In order to get the `business` package to work with the server and web applications, storage needed to be `async`. 
+An important note when building things is its better to go async route initially to avoid reworking code later.
+
+2. Getting the dev and build environments to play with each other was a real pain. The web apps use `vite` while the 
+server uses just the TypeScript compiler. Neither the vite nor the TS docs helped with this issue. I did read thoroughly
+this section in the Vite docs - https://vitejs.dev/guide/build.html#building-for-production. But what it really came
+down to was that I had some luck with the compiling by placing this in the `vite.config.ts` file:
+
+```js
+optimizeDeps: {
+  include: [
+    "business",
+  ],
+},
+build: {
+  rollupOptions: {}
+},
+```
+
+Notice that the build.rollupOptions just contains an empty object. I don't know why but this works along with the optimizeDeps.
+I don't like that there are some unknowns there at the moment but the project will run and build all projects correctly.
+
 # Roadmap
 
 - [X] Provide a application example in React.

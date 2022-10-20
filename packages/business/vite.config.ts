@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitest/config'
+import dts from 'vite-plugin-dts'
 import {resolve} from 'path'
 
 // Vitest video: https://www.youtube.com/watch?v=7f-71kYhK00
@@ -16,11 +17,12 @@ export default defineConfig({
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'index.ts'),
       name: 'business',
+      formats: ['es', "umd"],
       // the proper extensions will be added
       fileName: 'index',
     },
   },
-  plugins: [],
+  plugins: [dts()],
   test: {
     includeSource: ['src/**/*.ts'],
     coverage: {

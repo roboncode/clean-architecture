@@ -10,6 +10,16 @@ export default defineConfig({
   define: {
     'import.meta.vitest': 'undefined',
   },
+  // START :: DO NOT REMOVE THIS SECTION. IT IS REQUIRED FOR THE VITE CONFIG TO WORK
+  optimizeDeps: {
+    include: [
+      "business",
+    ],
+  },
+  build: {
+    rollupOptions: {}
+  },
+  // END :: DO NOT REMOVE THIS SECTION. IT IS REQUIRED FOR THE VITE CONFIG TO WORK
   plugins: [
     vue({
       template: {
